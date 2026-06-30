@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casita Montessori Santa Cruz — Guardería Montessori en Santa Cruz de la Sierra</title>
+  <meta name="description" content="Guardería Montessori en Santa Cruz para niños de 1 a 4 años. Ambientes adaptados, cámaras en vivo para padres y rutinas que promueven autonomía, orden y socialización.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --color-terracotta: #e9f958;
+      --color-terracotta-deep: #c5d43d;
+      --color-terracotta-whisper: rgba(233,249,88,0.14);
+      --color-terracotta-veil: rgba(233,249,88,0.28);
+      --color-warm-linen: #f8f6f2;
+      --color-natural-white: oklch(99% 0 0);
+      --color-purple: #3c307c;
+      --color-deep-bark: #303754;
+      --color-warm-earth: #726A9E;
+      --color-mid-clay: #726A9E;
+      --color-linen-mist: oklch(92% 0.005 75);
+      --color-sage: oklch(70% 0.07 155);
+      --shadow-hover: 0 4px 20px -4px rgba(100,60,30,0.10), 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-card: 0 12px 32px rgba(100,60,30,0.08);
+      --shadow-glow: 0 16px 48px var(--color-terracotta-whisper);
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --font-display: 'Lora', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--color-warm-linen);
+      color: var(--color-deep-bark);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* ── Layout helpers ── */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 5vw, 4rem);
+    }
+    .prose { max-width: 820px; }
+    .section { padding-block: clamp(4rem, 10vw, 8.75rem); }
+    .section--tight { padding-block: clamp(2.5rem, 6vw, 5rem); }
+
+    /* ── Typography ── */
+    .t-display {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 6vw, 3.75rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.1;
+      text-wrap: balance;
+      color: var(--color-deep-bark);
+    }
+    .t-headline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.2;
+      text-wrap: balance;
+      color: var(--color-deep-bark);
+    }
+    .t-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.35;
+    }
+    .t-body { font-size: 1rem; line-height: 1.65; }
+    .t-body-lead { font-size: 1.0625rem; line-height: 1.7; }
+    .t-supporting { font-size: 0.875rem; line-height: 1.65; }
+    .t-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .t-micro {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      padding: 14px 32px;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: transform 200ms var(--ease-out), background 200ms var(--ease-out), color 200ms var(--ease-out);
+      white-space: nowrap;
+    }
+    .btn:focus-visible { outline: 2px solid var(--color-terracotta); outline-offset: 2px; }
+    .btn--primary {
+      background: var(--color-terracotta);
+      color: #405403;
+    }
+    .btn--primary:hover { background: var(--color-terracotta-deep); transform: translateY(-2px); }
+    .btn--secondary {
+      background: rgba(48,55,84,0.07);
+      color: var(--color-deep-bark);
+    }
+    .btn--secondary:hover { background: rgba(48,55,84,0.13); transform: translateY(-2px); }
+
+
+    /* ── Cards ── */
+    .card {
+      background: var(--color-natural-white);
+      border-radius: 12px;
+      padding: 28px;
+      transition: box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out);
+    }
+    .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .card--feature {
+      background: var(--color-warm-linen);
+      border-radius: 20px;
+      padding: 40px;
+    }
+    .card--elevated { box-shadow: var(--shadow-card); }
+
+    /* ── Trust chip ── */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-natural-white);
+      border: 1px solid var(--color-linen-mist);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      white-space: nowrap;
+    }
+    .chip__icon { color: var(--color-terracotta); flex-shrink: 0; }
+
+    /* ── Section labels ── */
+    .section-label {
+      display: inline-block;
+      color: var(--color-deep-bark);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--color-linen-mist);
+      margin-block: 0;
+    }
+
+    /* ── Image placeholder ── */
+    .img-placeholder {
+      background: var(--color-linen-mist);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      color: var(--color-mid-clay);
+      font-size: 0.75rem;
+      font-family: var(--font-body);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* ── Scroll-reveal ── */
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-delay-1 { transition-delay: 100ms; }
+      .reveal-delay-2 { transition-delay: 200ms; }
+      .reveal-delay-3 { transition-delay: 300ms; }
+      .reveal-delay-4 { transition-delay: 400ms; }
+    }
+
+    /* ══════════════════════════════
+       HEADER
+    ══════════════════════════════ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--color-warm-linen);
+      border-bottom: 1px solid transparent;
+      transition: border-color 200ms, box-shadow 200ms;
+    }
+    .site-header.scrolled {
+      border-color: var(--color-linen-mist);
+      box-shadow: 0 2px 16px var(--color-terracotta-whisper);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      height: 108px;
+    }
+    .header-logo { flex-shrink: 0; display: flex; align-items: center; }
+    .header-logo img { height: 60px; width: auto; }
+    .header-nav { display: flex; align-items: center; gap: 2rem; }
+    .header-nav a {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-purple);
+      text-transform: uppercase;
+      transition: color 200ms;
+    }
+    .header-nav a:hover { color: rgba(64,84,3,1); }
+    .header-cta { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-deep-bark);
+      border-radius: 2px;
+      transition: transform 300ms, opacity 200ms;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 108px 0 0 0;
+      background: var(--color-natural-white);
+      z-index: 99;
+      padding: 2rem;
+      flex-direction: column;
+      gap: 0;
+      transform: translateX(100%);
+      transition: transform 350ms var(--ease-out);
+    }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav a {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-purple);
+      padding-block: 1rem;
+      border-bottom: 1px solid var(--color-linen-mist);
+      transition: color 200ms;
+    }
+    .mobile-nav a:hover { color: rgba(64,84,3,1); }
+    .mobile-nav .mobile-cta { margin-top: 2rem; }
+
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    .hero {
+      padding-block: clamp(4rem, 10vw, 7rem);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-mid-clay);
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--color-terracotta);
+    }
+    .hero-title {
+      margin-bottom: 1.5rem;
+      color: var(--color-deep-bark);
+    }
+    .hero-subtitle {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--color-warm-earth);
+      margin-bottom: 2.5rem;
+      max-width: 56ch;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .hero-image {
+      aspect-ratio: 4/3;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ══════════════════════════════
+       TRUST CHIPS
+    ══════════════════════════════ */
+    .trust-chips {
+      padding-block: 2.5rem;
+      border-top: 1px solid var(--color-linen-mist);
+      border-bottom: 1px solid var(--color-linen-mist);
+    }
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    /* ══════════════════════════════
+       SAFETY SECTION
+    ══════════════════════════════ */
+    .safety-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .safety-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      background: var(--color-natural-white);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .safety-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-deep-bark);
+    }
+    .safety-item h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-deep-bark);
+      margin-bottom: 0.25rem;
+    }
+    .safety-item p {
+      font-size: 0.9375rem;
+      color: var(--color-warm-earth);
+    }
+
+    /* ══════════════════════════════
+       MONTESSORI SECTION
+    ══════════════════════════════ */
+    .montessori-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .montessori-card {
+      background: var(--color-warm-linen);
+      border-radius: 16px;
+      padding: 28px;
+      transition: box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out);
+    }
+    .montessori-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .montessori-card__num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-style: italic;
+      color: var(--color-terracotta);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .montessori-card__title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--color-deep-bark);
+      margin-bottom: 0.5rem;
+    }
+    .montessori-card__body {
+      font-size: 0.9375rem;
+      color: var(--color-warm-earth);
+      line-height: 1.6;
+    }
+    .montessori-pullquote {
+      background: var(--color-warm-linen);
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 2.5rem;
+      position: relative;
+    }
+    .montessori-pullquote blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+      font-style: italic;
+      color: var(--color-purple);
+      line-height: 1.45;
+      max-width: 64ch;
+    }
+    .montessori-pullquote cite {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--color-warm-earth);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════
+       DEVELOPMENT SECTION
+    ══════════════════════════════ */
+    .dev-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .dev-item {
+      background: var(--color-natural-white);
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid var(--color-linen-mist);
+    }
+    .dev-item__icon {
+      color: var(--color-terracotta);
+      margin-bottom: 0.75rem;
+    }
+    .dev-item__title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--color-deep-bark);
+      margin-bottom: 0.25rem;
+    }
+    .dev-item__body {
+      font-size: 0.875rem;
+      color: var(--color-warm-earth);
+    }
+
+    /* ══════════════════════════════
+       TIMELINE
+    ══════════════════════════════ */
+    .timeline-section { background: var(--color-natural-white); }
+    .timeline {
+      margin-top: 3rem;
+      position: relative;
+    }
+    .timeline-connector { display: none; }
+    .timeline-steps {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 0;
+      margin-left: calc(-1 * clamp(1.25rem, 5vw, 4rem));
+      margin-right: calc(-1 * clamp(1.25rem, 5vw, 4rem));
+      padding-left: clamp(1.25rem, 5vw, 4rem);
+      padding-right: clamp(1.25rem, 5vw, 4rem);
+      padding-bottom: 1rem;
+      scroll-padding-left: clamp(1.25rem, 5vw, 4rem);
+    }
+    .timeline-steps::-webkit-scrollbar { display: none; }
+    .timeline-step {
+      flex: 0 0 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+      position: relative;
+      padding-right: 2rem;
+      scroll-snap-align: start;
+    }
+    .timeline-step:last-child { padding-right: 1.25rem; }
+    /* horizontal connector line between steps */
+    .timeline-step::after {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: 44px;
+      right: 0;
+      height: 1px;
+      background: var(--color-linen-mist);
+    }
+    .timeline-step:last-child::after { display: none; }
+    .timeline-step__num {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-warm-linen);
+      border: 1px solid var(--color-linen-mist);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-style: italic;
+      color: var(--color-deep-bark);
+      z-index: 1;
+      margin-bottom: 1rem;
+    }
+    .timeline-step__content { padding-top: 0; }
+    .timeline-step__title {
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-style: italic;
+      color: var(--color-deep-bark);
+      margin-bottom: 0.25rem;
+    }
+    .timeline-step__body {
+      font-size: 0.9375rem;
+      color: var(--color-warm-earth);
+    }
+
+    /* ══════════════════════════════
+       SERVICES
+    ══════════════════════════════ */
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      flex: 1 1 280px;
+      max-width: calc((100% - 3rem) / 3);
+      background: var(--color-natural-white);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--color-linen-mist);
+    }
+    .service-card__badge {
+      display: inline-block;
+      background: rgba(233,249,88,0.5);
+      color: #405403;
+      border-radius: 9999px;
+      padding: 4px 12px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .service-card__title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--color-purple);
+      margin-bottom: 0.5rem;
+    }
+    .color-purple {
+
+        color: var(--color-purple);
+    }
+    .service-card__age {
+      font-size: 0.875rem;
+      color: var(--color-mid-clay);
+      margin-bottom: 1.25rem;
+    }
+    .service-card__schedule {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--color-linen-mist);
+    }
+    .schedule-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .schedule-row span:first-child { font-size: 0.875rem; color: var(--color-warm-earth); }
+    .schedule-row span:last-child { font-size: 0.875rem; font-weight: 600; color: var(--color-purple); }
+
+    /* ══════════════════════════════
+       LOCATIONS
+    ══════════════════════════════ */
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .location-card {
+      background: var(--color-warm-linen);
+      border-radius: 20px;
+      padding: 36px;
+    }
+    .location-card__tag {
+      display: inline-block;
+      color: var(--color-terracotta);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .location-card__name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--color-purple);
+      margin-bottom: 0.25rem;
+    }
+    .location-card__address {
+      font-size: 0.9375rem;
+      color: var(--color-warm-earth);
+      margin-bottom: 1.5rem;
+    }
+    .location-schedule { margin-bottom: 1.5rem; }
+    .location-schedule h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-mid-clay);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ══════════════════════════════
+       FAQ
+    ══════════════════════════════ */
+    .faq-section { background: var(--color-natural-white); }
+    .faq-list {
+      margin-top: 3rem;
+      border-top: 1px solid var(--color-linen-mist);
+    }
+    .faq-item { border-bottom: 1px solid var(--color-linen-mist); }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding-block: 1.25rem;
+      text-align: left;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-purple);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 200ms;
+    }
+    .faq-question:hover { color: rgba(64,84,3,1); }
+    .faq-question[aria-expanded="true"] { color: rgba(64,84,3,1); }
+    .faq-chevron {
+      flex-shrink: 0;
+      color: var(--color-mid-clay);
+      transition: transform 250ms var(--ease-out);
+    }
+    .faq-question[aria-expanded="true"] .faq-chevron {
+      transform: rotate(180deg);
+      color: rgba(64,84,3,1);
+    }
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 300ms var(--ease-out);
+    }
+    .faq-answer.open { grid-template-rows: 1fr; }
+    .faq-answer-inner {
+      overflow: hidden;
+    }
+    .faq-answer-body {
+      padding-bottom: 1.25rem;
+      font-size: 0.9375rem;
+      color: var(--color-warm-earth);
+      line-height: 1.7;
+      max-width: 70ch;
+    }
+    .faq-wa-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--color-terracotta);
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ══════════════════════════════
+       FINAL CTA
+    ══════════════════════════════ */
+    .cta-block {
+      max-width: 560px;
+      margin-inline: auto;
+      text-align: center;
+      background: var(--color-natural-white);
+      border-radius: 24px;
+      padding: clamp(2.5rem, 6vw, 4rem) clamp(2rem, 5vw, 4rem);
+      box-shadow: var(--shadow-glow);
+    }
+    .cta-block .t-headline { margin-bottom: 1rem; }
+    .cta-block .t-body-lead { color: var(--color-warm-earth); margin-bottom: 2rem; }
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      align-items: center;
+    }
+
+    /* ══════════════════════════════
+       CAMERA CALLOUT STRIPE
+    ══════════════════════════════ */
+    .camera-stripe {
+      background: var(--color-natural-white);
+      border-top: 1px solid var(--color-terracotta-veil);
+      border-bottom: 1px solid var(--color-terracotta-veil);
+      padding-block: clamp(2.5rem, 6vw, 4rem);
+    }
+    .camera-stripe__inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 560px) {
+      .camera-stripe__inner { grid-template-columns: 1fr; }
+      .camera-stripe__icon-wrap { display: none; }
+    }
+    .camera-stripe__icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--color-terracotta-veil);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .camera-stripe__icon-wrap svg { color: var(--color-terracotta); }
+    .camera-stripe__eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-terracotta);
+      margin-bottom: 0.5rem;
+    }
+    .camera-stripe__headline {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 600;
+      color: var(--color-deep-bark);
+      line-height: 1.3;
+      margin: 0 0 0.625rem;
+    }
+    .camera-stripe__body {
+      font-size: 0.9375rem;
+      color: var(--color-warm-earth);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Featured chip */
+    .chip--featured {
+      background: var(--color-terracotta);
+      color: var(--color-natural-white);
+      font-weight: 600;
+    }
+    .chip--featured .chip__icon { color: var(--color-natural-white); }
+
+    /* ══════════════════════════════
+       EQUIPO + TESTIMONIAL
+    ══════════════════════════════ */
+    .trust-section {
+      background: var(--color-warm-linen);
+    }
+    .trust-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: start;
+    }
+    @media (max-width: 720px) {
+      .trust-layout { grid-template-columns: 1fr; }
+    }
+
+    /* Educator card */
+    .educator-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      background: var(--color-warm-linen);
+      border: 1px solid var(--color-linen-mist);
+      border-radius: 16px;
+      padding: clamp(1.5rem, 4vw, 2.25rem);
+    }
+    .educator-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--color-linen-mist);
+      border: 3px solid var(--color-terracotta-whisper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .educator-avatar svg { color: var(--color-terracotta); opacity: 0.5; }
+    .educator-meta { display: flex; align-items: center; gap: 1.125rem; }
+    .educator-name {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+      font-weight: 600;
+      color: var(--color-purple);
+      line-height: 1.25;
+      margin: 0;
+    }
+    .educator-role {
+      font-size: 0.8125rem;
+      color: var(--color-mid-clay);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+    .educator-credential {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #405403;
+      background: rgba(233,249,88,0.5);
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      width: fit-content;
+    }
+    .educator-bio {
+      font-size: 0.9375rem;
+      color: var(--color-warm-earth);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Testimonial */
+    .testimonial-block {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--color-warm-linen);
+      border: 1px solid var(--color-linen-mist);
+      border-radius: 16px;
+      padding: clamp(1.5rem, 4vw, 2.25rem);
+      position: relative;
+    }
+    .testimonial-card::before {
+content: '\201C';
+    font-family: 'Lora', Georgia, serif;
+    font-size: 11rem;
+    line-height: 1;
+    color: var(--color-terracotta);
+    opacity: 0.10;
+    position: absolute;
+    top: 4.75rem;
+    left: 1.10rem;
+    }
+    .testimonial-text {
+      font-size: 0.9375rem;
+      color: var(--color-warm-earth);
+      line-height: 1.75;
+      margin: 0 0 1.25rem;
+      padding-top: 1.5rem;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testimonial-author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(233,249,88,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #405403;
+    }
+    .testimonial-author-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-deep-bark);
+    }
+    .testimonial-author-detail {
+      font-size: 0.75rem;
+      color: var(--color-mid-clay);
+      margin-top: 0.125rem;
+    }
+    .trust-section-head {
+      margin-bottom: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    .site-footer {
+      background: var(--color-warm-linen);
+      color: var(--color-deep-bark);
+      border-top: 1px solid var(--color-linen-mist);
+      padding-block: 3rem 2rem;
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding-bottom: 2.5rem;
+      text-align: center;
+    }
+    .footer-logo-mark { flex-shrink: 0; }
+    .footer-logo-mark img { height: 80px; width: auto; }
+    .footer-brand-text {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--color-purple);
+      max-width: 74ch;
+    }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid var(--color-linen-mist);
+      margin-block: 0;
+    }
+    .footer-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      padding-block: 2.5rem;
+    }
+    .footer-nav-col {}
+    .footer-nav-col h4 {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-purple);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+    }
+    .footer-nav-col ul { display: flex; flex-direction: column; gap: 0.625rem; }
+    .footer-nav-col a {
+      font-size: 0.9375rem;
+      color: var(--color-purple);
+      transition: color 200ms;
+    }
+    .footer-nav-col a:hover { color: rgba(64,84,3,1); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-linen-mist);
+      font-size: 0.875rem;
+      color: var(--color-mid-clay);
+    }
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    .footer-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(48,55,84,0.05);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(48,55,84,0.5);
+      transition: background 200ms, color 200ms, transform 200ms var(--ease-out);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .footer-icon-btn:hover {
+      background: rgba(48,55,84,0.12);
+      color: #303754;
+      transform: translateY(-2px);
+    }
+    .footer-icon-btn:focus-visible { outline: 2px solid var(--color-deep-bark); outline-offset: 2px; }
+    .footer-copyright { color: var(--color-mid-clay); }
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (min-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+      .timeline-steps {
+        padding-left: clamp(1.25rem, 5vw, 4rem);
+      }
+      .timeline-step { flex: 0 0 220px; }
+      .safety-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 767px) {
+      .header-nav { display: none; }
+      .header-cta .btn { display: none; }
+      .nav-toggle { display: flex; }
+      .mobile-nav { display: flex; }
+      .chip { font-size: 0.8125rem; }
+      /* Horizontal scroll carousels on mobile */
+      .safety-grid,
+      .montessori-grid,
+      .dev-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 0.5rem;
+        padding-right: 1.25rem;
+      }
+      .safety-item,
+      .montessori-card,
+      .dev-item {
+        flex: 0 0 80vw;
+        max-width: 80vw;
+        scroll-snap-align: start;
+      }
+      .service-card { max-width: 100%; flex: 1 1 100%; }
+
+      /* Footer mobile */
+      .footer-brand { flex-direction: column; gap: 1rem; }
+      .footer-nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 1rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .footer-copyright { font-size: 0.8125rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .safety-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ── Section color overrides ── */
+    #seguridad {
+      background: #303754;
+    }
+    #seguridad .section-label { color: rgba(255,255,255,0.75); }
+    #seguridad .t-headline { color: #fff; }
+    #seguridad .t-body-lead { color: #fff9f3; }
+
+    #horarios { background: var(--color-natural-white); }
+    #horarios .t-headline { color: var(--color-deep-bark); }
+
+    #desarrollo {
+      background: #e9f958;
+    }
+    #desarrollo .t-headline { color: #303754; }
+    #desarrollo .t-body-lead { color: #303754; }
+
+    .timeline-section { background: var(--color-warm-linen); }
+    .faq-section { background: var(--color-warm-linen); }
+
+    /* ── Camera stripe variants ── */
+    #camara-callout {
+      background: #e9f958;
+      border-top: none;
+      border-bottom: none;
+    }
+    #camara-callout .camera-stripe__icon-wrap {
+      background: rgba(48,55,84,0.15);
+    }
+    #camara-callout .camera-stripe__icon-wrap svg { color: #303754; }
+    #camara-callout .camera-stripe__eyebrow { color: #303754; }
+    #camara-callout .camera-stripe__headline { color: #303754; }
+    #camara-callout .camera-stripe__body { color: #303754; opacity: 0.8; }
+
+    #precio-callout {
+      background: #e9f958;
+      border-top: none;
+      border-bottom: none;
+    }
+    #precio-callout .camera-stripe__eyebrow { color: #303754; }
+    #precio-callout .camera-stripe__headline { color: #303754; }
+    #precio-callout .camera-stripe__body { color: #303754; opacity: 0.8; }
+    #precio-callout .camera-stripe__icon-wrap { background: rgba(48,55,84,0.15); }
+    #precio-callout .camera-stripe__icon-wrap svg { color: #303754; }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="header-logo" aria-label="Casita Montessori — inicio">
+        <img src="Assets/Casita-Montessori-logo-H.svg" alt="Casita Montessori Santa Cruz" width="380" height="76">
+      </a>
+      <nav class="header-nav" aria-label="Navegación principal">
+        <a href="#seguridad">Nuestro espacio</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#sucursales">Sucursales</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+      <div class="header-cta">
+        <a href="https://wa.me/59171716612" class="btn btn--primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar cupos
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Menú móvil">
+  <a href="#seguridad">Nuestro espacio</a>
+  <a href="#horarios">Horarios</a>
+  <a href="#sucursales">Sucursales</a>
+  <a href="#preguntas">Preguntas</a>
+  <div class="mobile-cta">
+    <a href="https://wa.me/59171716612" class="btn btn--primary" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Consultar cupos
+    </a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="reveal">
+        <h1 class="t-display hero-title">Para crecer con autonomía, seguridad y respeto</h1>
+        <p class="hero-subtitle">Un espacio donde los niños de 1 a 4 años pueden explorar, aprender y desarrollar su independencia con tranquilidad. Ambientes adaptados, acompañamiento respetuoso y cámaras en vivo para que siempre te sientas cerca de tu hijo.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/59171716612" class="btn btn--primary" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Consultar cupos
+          </a>
+        </div>
+      </div>
+      <div class="hero-image reveal reveal-delay-2">
+        <img
+          src="Assets/img/Image-1.png"
+          alt="Niño pequeño concentrado jugando con bloques geométricos de colores en el suelo"
+          width="1200"
+          height="900"
+          loading="eager"
+          style="width:100%;height:100%;object-fit:cover;border-radius:24px;"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SAFETY ══ -->
+<section class="section" id="seguridad">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="t-micro section-label">Tranquilidad para los padres</span>
+      <h2 class="t-headline" style="max-width:36ch;margin-bottom:1rem;text-align:center;margin-left:auto;margin-right:auto;">La tranquilidad de saber que tu hijo está bien</h2>
+      <p class="t-body-lead prose" style="margin-bottom:3rem;text-align:center;max-width:62ch;margin-left:auto;margin-right:auto;">Confiar el cuidado de tu hijo a otras personas no es una decisión sencilla. Por eso hemos creado un entorno seguro, cómodo y preparado para acompañarlo con respeto, mientras tú tienes acceso en todo momento ver qué está haciendo.</p>
+    </div>
+    <div class="reveal" style="margin-bottom:3rem;border-radius:20px;overflow:hidden;max-height:420px;">
+      <img
+        src="Assets/img/Image-2.png"
+        alt="Niños pequeños jugando juntos en el ambiente Montessori de Casita"
+        width="1400"
+        height="600"
+        loading="lazy"
+        style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;"
+      >
+    </div>
+    <div class="safety-grid">
+      <div class="safety-item reveal">
+        <div class="safety-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+        </div>
+        <div>
+          <h3>Cámaras en vivo</h3>
+          <p>Mantente cerca de tu hijo durante la jornada con acceso a cámaras en vivo siempre que lo necesites.</p>
+        </div>
+      </div>
+      <div class="safety-item reveal reveal-delay-1">
+        <div class="safety-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <h3>Entrega segura</h3>
+          <p>Cada niño es entregado únicamente a sus padres o a los adultos previamente autorizados, siguiendo un protocolo de identificación y cuidado.</p>
+        </div>
+      </div>
+      <div class="safety-item reveal reveal-delay-2">
+        <div class="safety-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        </div>
+        <div>
+          <h3>Ambientes preparados para ellos</h3>
+          <p>Espacios adaptados para niños pequeños, con materiales seguros, muebles a su altura y ambientes limpios que favorecen su exploración con confianza.</p>
+        </div>
+      </div>
+      <div class="safety-item reveal">
+        <div class="safety-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h3>Comunicación cercana</h3>
+          <p>Cuando ocurre algo importante, nos comunicamos contigo de manera oportuna para que siempre estés informado.</p>
+        </div>
+      </div>
+      <div class="safety-item reveal reveal-delay-1">
+        <div class="safety-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div>
+          <h3>Adaptación con respeto</h3>
+          <p>Acompañamos a cada niño con paciencia, cariño y a su propio ritmo, para que se sienta seguro desde el primer día.</p>
+        </div>
+      </div>
+      <div class="safety-item reveal reveal-delay-2">
+        <div class="safety-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h3>Equipo que cuida con dedicación</h3>
+          <p>Nuestras educadoras acompañan a los niños durante toda la jornada, guiándolos en sus actividades, hábitos de higiene, alimentación y momentos de juego.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CAMERA CALLOUT ══ -->
+<div class="camera-stripe" id="camara-callout">
+  <div class="container">
+    <div class="camera-stripe__inner reveal">
+      <div class="camera-stripe__icon-wrap" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M15 10l4.553-2.07A1 1 0 0121 8.82v6.362a1 1 0 01-1.447.894L15 14"/>
+          <rect x="1" y="7" width="14" height="10" rx="2"/>
+        </svg>
+      </div>
+      <div>
+        <p class="camera-stripe__eyebrow">Cámaras en vivo</p>
+        <h2 class="camera-stripe__headline">Ves a tu hijo en tiempo real, desde tu teléfono.</h2>
+        <p class="camera-stripe__body">Acceso libre a las cámaras durante toda la jornada, sin restricciones de horario. Muchos papás lo describen como el detalle que los terminó de convencer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MONTESSORI ══ -->
+<section class="section" style="background:var(--color-natural-white);" id="metodo">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="t-micro section-label">Método Montessori</span>
+      <h2 class="t-headline" style="max-width:38ch;margin-bottom:1rem;text-align:center;margin-left:auto;margin-right:auto;">Cada pequeño logro construye su independencia</h2>
+      <p class="t-body-lead" style="color:var(--color-warm-earth);max-width:58ch;text-align:center;margin-left:auto;margin-right:auto;">Los aprendizajes más importantes nacen de las pequeñas acciones de cada día. Cuando un niño elige una actividad, guarda sus materiales, lava sus manos o participa en su rutina, descubre que es capaz de hacer cada vez más por sí mismo.</p>
+    </div>
+    <div class="montessori-grid">
+      <div class="montessori-card reveal">
+        <div class="montessori-card__title">Autonomía</div>
+        <p class="montessori-card__body">Acompañados siempre por nuestras educadoras, los niños aprenden a elegir, participar en sus rutinas y resolver pequeñas tareas por sí mismos.</p>
+      </div>
+      <div class="montessori-card reveal reveal-delay-1">
+        <div class="montessori-card__title">Todo en su lugar</div>
+        <p class="montessori-card__body">Poco a poco aprenden a cuidar sus materiales y guardar sus pertenencias. Un ambiente organizado les ayuda a sentirse seguros.</p>
+      </div>
+      <div class="montessori-card reveal reveal-delay-2">
+        <div class="montessori-card__title">Explorar también es aprender</div>
+        <p class="montessori-card__body">Nuestros espacios están preparados para que los niños puedan moverse, descubrir y experimentar con libertad, en un entorno seguro y adaptado a su edad.</p>
+      </div>
+      <div class="montessori-card reveal">
+        <div class="montessori-card__title">Experiencias que se vuelven aprendizaje</div>
+        <p class="montessori-card__body">Lavarse las manos, compartir la merienda, construir, clasificar o crear con sus manos fortalece su concentración, coordinación y autonomía.</p>
+      </div>
+      <div class="montessori-card reveal reveal-delay-1">
+        <div class="montessori-card__title">Límites con amor</div>
+        <p class="montessori-card__body">Establecemos límites claros con paciencia y afecto, entendiendo que cada error es una oportunidad para aprender y crecer.</p>
+      </div>
+      <div class="montessori-card reveal reveal-delay-2">
+        <div class="montessori-card__title">Respeto por su ritmo</div>
+        <p class="montessori-card__body">Cada niño tiene su propio tiempo para descubrir el mundo. Lo acompañamos sin presiones ni comparaciones, celebrando cada avance.</p>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:2.5rem;border-radius:20px;overflow:hidden;max-height:440px;">
+      <img
+        src="Assets/img/Image-3.png"
+        alt="Niños dibujando y trabajando juntos en una mesa en el ambiente Montessori"
+        width="1400"
+        height="600"
+        loading="lazy"
+        style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;"
+      >
+    </div>
+    <div class="montessori-pullquote reveal" style="margin-top:2.5rem;">
+      <blockquote>"No hacemos todo por ellos; los acompañamos para que descubran que pueden hacerlo."</blockquote>
+      <cite>Lic. Wara Muñoz Villarroel · Guía Montessori, Casita</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEVELOPMENT ══ -->
+<section class="section" id="desarrollo">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="t-micro section-label">Desarrollo infantil</span>
+      <h2 class="t-headline" style="max-width:38ch;margin-bottom:1rem;text-align:center;margin-left:auto;margin-right:auto;">Pequeños cambios que hacen una gran diferencia</h2>
+      <p class="t-body-lead" style="max-width:58ch;text-align:center;margin-left:auto;margin-right:auto;">Cada niño vive su propio proceso de crecimiento. Más que prometer resultados, compartimos los cambios que muchas familias empiezan a observar en el día a día, dentro y fuera de casa.</p>
+    </div>
+    <div class="dev-grid">
+      <div class="dev-item reveal">
+        <div class="dev-item__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#303754" stroke-width="1.75"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="dev-item__title">Lenguaje y comunicación</div>
+        <p class="dev-item__body">Poco a poco expresan mejor lo que sienten y necesitan. Su vocabulario se amplía y ganan confianza para comunicarse con quienes los rodean.</p>
+      </div>
+      <div class="dev-item reveal reveal-delay-1">
+        <div class="dev-item__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#303754" stroke-width="1.75"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="dev-item__title">Coordinación y movimiento</div>
+        <p class="dev-item__body">A través del juego y las actividades diarias fortalecen movimientos, mejoran su coordinación y descubren nuevas habilidades con sus manos y su cuerpo.</p>
+      </div>
+      <div class="dev-item reveal reveal-delay-2">
+        <div class="dev-item__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#303754" stroke-width="1.75"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="dev-item__title">Convivencia con otros</div>
+        <p class="dev-item__body">Aprenden a compartir, esperar su turno, colaborar y relacionarse con otros niños en un ambiente de respeto y acompañamiento.</p>
+      </div>
+      <div class="dev-item reveal">
+        <div class="dev-item__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#303754" stroke-width="1.75"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="dev-item__title">Hábitos para la vida diaria</div>
+        <p class="dev-item__body">Acciones sencillas como lavarse las manos, ordenar sus pertenencias o cuidar sus materiales comienzan a convertirse en parte de su rutina.</p>
+      </div>
+      <div class="dev-item reveal reveal-delay-1">
+        <div class="dev-item__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#303754" stroke-width="1.75"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="dev-item__title">Confianza en sí mismos</div>
+        <p class="dev-item__body">Poco a poco participan con mayor autonomía en actividades cotidianas, disfrutando la satisfacción de descubrir que pueden hacerlo.</p>
+      </div>
+      <div class="dev-item reveal reveal-delay-2">
+        <div class="dev-item__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#303754" stroke-width="1.75"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <div class="dev-item__title">Atención y concentración</div>
+        <p class="dev-item__body">Aprenden a dedicar tiempo a una actividad, explorarla con calma y finalizarla antes de pasar a la siguiente, desarrollando paciencia y gusto por aprender.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section class="section timeline-section" id="rutina">
+  <div class="container">
+    <div class="reveal">
+      <span class="t-micro section-label">Rutina</span>
+      <h2 class="t-headline" style="max-width:34ch;margin-bottom:1rem;">Así transcurre el día de tu hijo</h2>
+      <p class="t-body-lead" style="color:var(--color-warm-earth);max-width:56ch;">Cada jornada combina momentos de aprendizaje, juego y cuidado dentro de una rutina que les brinda seguridad, confianza y tranquilidad.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-connector" aria-hidden="true"></div>
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="timeline-step__num" aria-hidden="true">1</div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__title">Bienvenida y organización</div>
+            <p class="timeline-step__body">Comenzamos el día con calma. Los niños organizan sus pertenencias, cambian sus zapatos y se preparan para disfrutar de una nueva jornada.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step__num" aria-hidden="true">2</div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__title">Exploración libre</div>
+            <p class="timeline-step__body">Cada niño elige la actividad que más despierta su interés, mientras nuestras educadoras acompañan y observan respetando su iniciativa y su ritmo.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step__num" aria-hidden="true">3</div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__title">Aprendizajes guiados</div>
+            <p class="timeline-step__body">A través de juegos, materiales y actividades prácticas, descubren nuevos conocimientos y fortalecen habilidades para la vida diaria.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step__num" aria-hidden="true">4</div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__title">Momento de compartir</div>
+            <p class="timeline-step__body">La merienda es un espacio para conversar y fortalecer hábitos saludables. Cada familia puede enviar el alimento de su hijo o acceder al servicio de merienda saludable.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step__num" aria-hidden="true">5</div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__title">Hábitos que ayudan a crecer</div>
+            <p class="timeline-step__body">Lavarse las manos, cuidar sus materiales y ordenar su espacio son pequeñas acciones que, con el tiempo, se convierten en parte natural de su día.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step__num" aria-hidden="true">6</div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__title">Juego y movimiento</div>
+            <p class="timeline-step__body">El juego libre y las actividades al aire libre les permiten explorar, moverse, descansar y compartir con otros niños en un ambiente seguro.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step__num" aria-hidden="true">7</div>
+          <div class="timeline-step__content">
+            <div class="timeline-step__title">Regreso a casa</div>
+            <p class="timeline-step__body">La jornada termina con una entrega organizada y segura. Cada niño es recibido únicamente por sus padres o por los adultos previamente autorizados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section class="section" id="horarios">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="t-micro section-label">Horarios</span>
+      <h2 class="t-headline" style="max-width:36ch;margin-bottom:1rem;text-align:center;margin-left:auto;margin-right:auto;">Turnos y espacios para acompañar cada etapa</h2>
+      <p class="t-body-lead" style="color:var(--color-warm-earth);max-width:56ch;text-align:center;margin-left:auto;margin-right:auto;">Sabemos que cada familia tiene una rutina diferente y que cada niño crece a su propio ritmo. Por eso ofrecemos horarios flexibles y grupos organizados por edad, para brindar un acompañamiento cercano y adecuado en cada etapa de su desarrollo.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-card__badge">Maternal</div>
+        <div class="service-card__title">Niños de 8 meses a 15 meses</div>
+        <p class="service-card__age">Niños que gatean hasta niños que caminan sin ayuda.</p>
+        <div class="service-card__schedule">
+          <div class="schedule-row">
+            <span>Turno mañana</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 13:00</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno tarde</span>
+            <span style="font-weight:600;color:var(--color-purple);">14:00 – 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno completo</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 18:30</span>
+          </div>
+        </div>
+        <a href="https://wa.me/59171716612" class="btn btn--secondary" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:1.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar cupos
+        </a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card__badge">Taller inicial 1</div>
+        <div class="service-card__title">Niños de 15 meses a 2 años</div>
+        <p class="service-card__age">Niños que ya señalan o piden algo hasta niños que ya unen frases cortas.</p>
+        <div class="service-card__schedule">
+          <div class="schedule-row">
+            <span>Turno mañana</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 13:00</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno tarde</span>
+            <span style="font-weight:600;color:var(--color-purple);">14:00 – 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno completo</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 18:30</span>
+          </div>
+        </div>
+        <a href="https://wa.me/59171716612" class="btn btn--secondary" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:1.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar cupos
+        </a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-card__badge">Taller inicial 2</div>
+        <div class="service-card__title">Niños de 2 a 3 años</div>
+        <p class="service-card__age">Niños que ya expresan ideas cortas hasta niños con lenguaje fluido y control del cuerpo más preciso.</p>
+        <div class="service-card__schedule">
+          <div class="schedule-row">
+            <span>Turno mañana</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 13:00</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno tarde</span>
+            <span style="font-weight:600;color:var(--color-purple);">14:00 – 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno completo</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 18:30</span>
+          </div>
+        </div>
+        <a href="https://wa.me/59171716612" class="btn btn--secondary" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:1.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar cupos
+        </a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card__badge">Pre kinder y kinder</div>
+        <div class="service-card__title">Niños de 4 y 5 años</div>
+        <p class="service-card__age">Niños que ya expresan ideas cortas hasta niños con lenguaje fluido y control del cuerpo más preciso.</p>
+        <div class="service-card__schedule">
+          <div class="schedule-row">
+            <span>Turno mañana</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 13:00</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno tarde</span>
+            <span style="font-weight:600;color:var(--color-purple);">14:00 – 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno completo</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 18:30</span>
+          </div>
+        </div>
+        <a href="https://wa.me/59171716612" class="btn btn--secondary" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:1.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar cupos
+        </a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card__badge">Club de tareas</div>
+        <div class="service-card__title">Hasta los 7 años</div>
+        <p class="service-card__age">Las guías acompañan la realización de las tareas de niños hasta los 7 años.</p>
+        <div class="service-card__schedule">
+          <div class="schedule-row">
+            <span>Turno mañana</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 13:00</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno tarde</span>
+            <span style="font-weight:600;color:var(--color-purple);">14:00 – 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span>Turno completo</span>
+            <span style="font-weight:600;color:var(--color-purple);">7:30 – 18:30</span>
+          </div>
+        </div>
+        <a href="https://wa.me/59171716612" class="btn btn--secondary" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:1.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar cupos
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING CALLOUT ══ -->
+<div class="camera-stripe" id="precio-callout">
+  <div class="container">
+    <div class="camera-stripe__inner reveal">
+      <div class="camera-stripe__icon-wrap" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="1" y="4" width="22" height="16" rx="2"/>
+          <path d="M1 10h22"/>
+        </svg>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;justify-content:space-between;width:100%;">
+        <div>
+          <h2 class="camera-stripe__headline">Precios accesibles para tu familia.</h2>
+          <p class="camera-stripe__body">Consulta nuestros planes mensuales y descuentos por hermanos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LOCATIONS ══ -->
+<section class="section" style="background:var(--color-natural-white);" id="sucursales">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="t-micro section-label">Sucursales</span>
+      <h2 class="t-headline" style="max-width:32ch;margin-bottom:1rem;text-align:center;margin-left:auto;margin-right:auto;">Tres sucursales para estar más cerca</h2>
+      <p class="t-body-lead" style="color:var(--color-warm-earth);max-width:54ch;text-align:center;margin-left:auto;margin-right:auto;">Estamos presentes en la Zona Norte y el Urubó para que puedas elegir la sede que mejor se adapte a tu día a día y acompañar a tu hijo con mayor comodidad y tranquilidad.</p>
+    </div>
+    <div class="locations-grid">
+      <div class="location-card reveal">
+         <div class="service-card__badge">Zona Norte</div>
+        <div class="location-card__name">El Remanso</div>
+        <a class="location-card__address" href="https://maps.google.com/?q=El+Remanso+1+Calle+5+Oeste+Santa+Cruz+Bolivia" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:6px;">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="#303754" aria-hidden="true" style="flex-shrink:0;"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>El Remanso 1, Calle 5 Oeste, casa 13<svg width="13" height="13" viewBox="0 0 16 16" fill="#303754" aria-hidden="true" style="flex-shrink:0;"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L1.146 14.146a.5.5 0 1 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/></svg>
+        </a>
+        <div class="location-schedule">
+          <h4>Horarios · Lunes a viernes</h4>
+          <div class="schedule-row" style="margin-bottom:0.375rem;">
+            <span style="font-size:0.875rem;color:var(--color-warm-earth);">Turno mañana</span>
+            <span style="font-size:0.875rem;font-weight:600;color:var(--color-purple);">7:30 – 13:00</span>
+          </div>
+          <div class="schedule-row" style="margin-bottom:0.375rem;">
+            <span style="font-size:0.875rem;color:var(--color-warm-earth);">Turno tarde</span>
+            <span style="font-size:0.875rem;font-weight:600;color:var(--color-purple);">14:00 – 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span style="font-size:0.875rem;color:var(--color-warm-earth);">Turno completo</span>
+            <span style="font-size:0.875rem;font-weight:600;color:var(--color-purple);">7:30 – 18:30</span>
+          </div>
+        </div>
+        <a href="https://wa.me/59171716612?text=Hola%2C%20me%20interesa%20consultar%20sobre%20la%20sucursal%20Zona%20Norte" class="btn btn--secondary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp
+        </a>
+      </div>
+      <div class="location-card reveal reveal-delay-1">
+        <div class="service-card__badge">Urubó</div>
+        <div class="location-card__name">Villa Bonita</div>
+        <a class="location-card__address" href="https://maps.google.com/?q=Villa+Bonita+Av+Marayau+Urubo+Santa+Cruz+Bolivia" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:6px;">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="#303754" aria-hidden="true" style="flex-shrink:0;"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>Villa Bonita, Av. Marayau, lado Listo Minimarket<svg width="13" height="13" viewBox="0 0 16 16" fill="#303754" aria-hidden="true" style="flex-shrink:0;"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L1.146 14.146a.5.5 0 1 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/></svg>
+        </a>
+        <div class="location-schedule">
+          <h4>Horarios · Lunes a viernes</h4>
+          <div class="schedule-row" style="margin-bottom:0.375rem;">
+            <span style="font-size:0.875rem;color:var(--color-warm-earth);">Turno mañana</span>
+            <span style="font-size:0.875rem;font-weight:600;color:var(--color-deep-bark);">7:30 – 13:00</span>
+          </div>
+          <div class="schedule-row" style="margin-bottom:0.375rem;">
+            <span style="font-size:0.875rem;color:var(--color-warm-earth);">Turno tarde</span>
+            <span style="font-size:0.875rem;font-weight:600;color:var(--color-deep-bark);">14:00 – 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span style="font-size:0.875rem;color:var(--color-warm-earth);">Turno completo</span>
+            <span style="font-size:0.875rem;font-weight:600;color:var(--color-deep-bark);">7:30 – 18:30</span>
+          </div>
+        </div>
+        <a href="https://wa.me/59171716612?text=Hola%2C%20me%20interesa%20consultar%20sobre%20la%20sucursal%20Urub%C3%B3" class="btn btn--secondary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp
+        </a>
+      </div>
+      <div class="location-card reveal reveal-delay-2">
+        <div class="service-card__badge">Cala Cala | Cochabamba</div>
+        <div class="location-card__name">Cala Cala</div>
+        <a class="location-card__address" href="https://maps.app.goo.gl/q7a7ZKqgqwCqj8Cf9" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:6px;">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="#303754" aria-hidden="true" style="flex-shrink:0;"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>Illapa 1808, Entre Av. América y Alcides Arguedas<svg width="13" height="13" viewBox="0 0 16 16" fill="#303754" aria-hidden="true" style="flex-shrink:0;"><path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L1.146 14.146a.5.5 0 1 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/></svg>
+        </a>
+        <div class="location-schedule">
+          <h4>Horarios · Lunes a viernes</h4>
+          <div class="schedule-row" style="margin-bottom:0.375rem;">
+            <span style="font-size:0.875rem;color:var(--color-warm-earth);">Turno mañana</span>
+            <span style="font-size:0.875rem;font-weight:600;color:var(--color-purple);">7:30 – 13:00</span>
+          </div>
+          <div class="schedule-row" style="margin-bottom:0.375rem;">
+            <span style="font-size:0.875rem;color:var(--color-warm-earth);">Turno tarde</span>
+            <span style="font-size:0.875rem;font-weight:600;color:var(--color-purple);">14:00 – 18:30</span>
+          </div>
+          <div class="schedule-row">
+            <span style="font-size:0.875rem;color:var(--color-warm-earth);">Turno completo</span>
+            <span style="font-size:0.875rem;font-weight:600;color:var(--color-purple);">7:30 – 18:30</span>
+          </div>
+        </div>
+        <a href="https://wa.me/59171716612?text=Hola%2C%20me%20interesa%20consultar%20sobre%20la%20sucursal%20Cala%20Cala" class="btn btn--secondary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="section faq-section" id="preguntas">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="t-micro section-label">Preguntas</span>
+      <h2 class="t-headline" style="max-width:36ch;margin-bottom:1rem;text-align:center;margin-left:auto;margin-right:auto;">Todo lo que quieres saber antes de dar este gran paso</h2>
+      <p class="t-body-lead" style="color:var(--color-warm-earth);max-width:54ch;text-align:center;margin-left:auto;margin-right:auto;">Sabemos que elegir una guardería genera muchas preguntas. Si no encuentras aquí la respuesta que buscas, estaremos encantados de ayudarte por WhatsApp.</p>
+    </div>
+    <div class="faq-list" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Desde qué edad reciben niños?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Desde que el niño sabe caminar, aproximadamente desde 1 año. No hay un requisito de edad exacta: evaluamos la etapa de desarrollo de cada niño.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Hasta qué edad atienden?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Hasta antes de iniciar prekínder, aproximadamente a los 4 años. El objetivo es que los niños salgan de Casita listos para la siguiente etapa educativa.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Tienen cámaras en vivo? ¿Cómo funciona el acceso?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Sí. Los padres tienen acceso libre a las cámaras durante la jornada. Al momento de inscribir, te explicamos cómo conectarte desde tu teléfono.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Qué es Montessori en la práctica?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">En Casita, Montessori se expresa en las rutinas diarias: el niño elige su actividad, ordena sus materiales, lava sus manos, guarda sus cosas. No hacemos todo por él; lo acompañamos para que descubra que puede hacerlo. No usamos Montessori como etiqueta ni como teoría; lo vivimos en cada momento de la jornada.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Cómo acompañan la adaptación?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">La adaptación se hace con paciencia, sin forzar tiempos. Los primeros días, los padres pueden quedar más tiempo si el niño lo necesita. Hay comunicación más frecuente durante esa etapa para que los papás sepan cómo va el proceso.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Aceptan niños con pañal? ¿Acompañan el control de esfínteres?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Sí, aceptamos niños con pañal y acompañamos el proceso de control de esfínteres con respeto y sin presión. Es una rutina más de la jornada, coordinada con los padres.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Cómo funciona la merienda?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Los niños pueden llevar su propia merienda de casa. También existe un servicio opcional de merienda saludable preparada en la guardería. Consulta disponibilidad y costo por WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Quién puede recoger al niño?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Solo los padres o adultos previamente autorizados por la familia. La entrega se hace en puerta, con confirmación de identidad. No hay excepciones.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Puedo conocer la guardería antes de inscribir?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Sí. Puedes agendar una visita para conocer el espacio, el equipo y hacer las preguntas que necesites. <a href="https://wa.me/59171716612?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20visita" class="faq-wa-note" target="_blank" rel="noopener">→ Agendar visita por WhatsApp</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Tienen inglés o educación bilingüe?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">No. Casita Montessori no ofrece inglés ni educación bilingüe. Nos especializamos en primera infancia con metodología Montessori en español. Si buscas un programa bilingüe, somos honestos: esta no es nuestra propuesta.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Cuál es el precio? ¿Hay cupos disponibles?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Los precios y la disponibilidad de cupos cambian según el turno y la sucursal. La manera más directa de saberlo es escribirnos. <a href="https://wa.me/59171716612?text=Hola%2C%20quisiera%20consultar%20precio%20y%20disponibilidad" class="faq-wa-note" target="_blank" rel="noopener">→ Consultar por WhatsApp</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          ¿Cuántos niños hay por educadora?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p class="faq-answer-body">Esa información depende del turno y la sucursal. Consúltanos por WhatsApp y te damos el detalle actualizado. <a href="https://wa.me/59171716612" class="faq-wa-note" target="_blank" rel="noopener">→ Consultar por WhatsApp</a></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ EQUIPO + TESTIMONIAL ══ -->
+<section class="section trust-section" id="equipo">
+  <div class="container">
+
+    <div class="trust-section-head reveal">
+      <h2 class="t-headline" style="max-width:28ch;">Las manos que acompañan con cariño y respeto</h2>
+      <p class="t-body-lead" style="color:var(--color-warm-earth);max-width:52ch;">Detrás de cada sonrisa, cada pequeño logro y cada nuevo aprendizaje hay un equipo que acompaña a los niños con paciencia, dedicación y respeto por su ritmo.</p>
+    </div>
+
+    <div class="trust-layout">
+
+      <!-- Educator -->
+      <div class="educator-card reveal">
+        <div class="educator-meta">
+          <div class="educator-avatar" aria-hidden="true">
+            <img src="Assets/img/Image-4.png" alt="" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div>
+            <h3 class="educator-name">Lic. Wara Muñoz Villarroel</h3>
+            <p class="educator-role">Psicóloga Educativa · Guía Montessori</p>
+          </div>
+        </div>
+        <span class="educator-credential">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Certificación Montessori
+        </span>
+        <p class="educator-bio">
+          Wara combina su formación en psicología educativa con la guía Montessori para acompañar a cada niño desde su propio ritmo. Su mirada clínica y su sensibilidad hacia el desarrollo temprano son la base del trabajo en sala.
+        </p>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="testimonial-block reveal reveal-delay-1">
+        
+        <div class="testimonial-card">
+                    <div class="testimonial-author">
+            <div class="testimonial-author-avatar" aria-hidden="true">F</div>
+            <div>
+              <div class="testimonial-author-name">Fabiola Zenteno</div>
+              <div class="testimonial-author-detail">Mamá de alumna desde el primer año</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            Como padres nos es difícil confiar a terceros el cuidado de nuestros pequeños… En Casita Montessori no solo me la cuidaron desde que tenía un año, también le enseñaron a ser independiente y proactiva. Lograr que un niño de esa edad se entusiasme todos los días con ir a la escuela y estar con sus tías… solo se puede conseguir con un trabajo hecho con amor y dedicación. Excelentes profesionales, sigan adelante.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="container">
+
+    <!-- Brand row -->
+    <div class="footer-brand">
+      <div class="footer-logo-mark">
+        <img src="Assets/Casita-Montessori-logo-icon.svg" alt="Casita Montessori Santa Cruz" width="64" height="64">
+      </div>
+      <p class="footer-brand-text">Casita Montessori Santa Cruz es una guardería Montessori para niños de 1 a 4 años, con ambientes adaptados, cámaras en vivo para padres y rutinas que promueven autonomía, orden, lenguaje y socialización en un entorno seguro y respetuoso. Atendemos en Zona Norte (El Remanso) y Urubó (Villa Bonita), de lunes a viernes.</p>
+    </div>
+
+    <hr class="footer-divider">
+
+    <!-- Nav columns -->
+    <nav class="footer-nav" aria-label="Mapa del sitio">
+      <div class="footer-nav-col">
+        <h4>Nosotros</h4>
+        <ul>
+          <li><a href="#metodo">Método Montessori</a></li>
+          <li><a href="#desarrollo">Desarrollo infantil</a></li>
+          <li><a href="#rutina">Rutina</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>Horarios</h4>
+        <ul>
+          <li><a href="#horarios">Maternal 1 (8 – 15 meses)</a></li>
+          <li><a href="#horarios">Taller inicial 1 (15 meses – 2 años)</a></li>
+          <li><a href="#horarios">Taller inicial 2 (2 – 3 años)</a></li>
+          <li><a href="#horarios">Pre kinder y kinder (4 – 5 años)</a></li>
+          <li><a href="#horarios">Club de tareas (hasta los 7 años)</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>Sucursales</h4>
+        <ul>
+          <li><a href="#sucursales">Zona Norte | Santa Cruz</a></li>
+          <li><a href="#sucursales">Urubó | Santa Cruz</a></li>
+          <li><a href="#sucursales">Cala Cala | Cochabamba</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/59171716612" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <hr class="footer-divider">
+
+    <!-- Bottom bar: socials left, copyright right -->
+    <div class="footer-bottom">
+      <div class="footer-socials">
+        <a href="https://wa.me/59171716612" class="footer-icon-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://instagram.com/casitamontessorisc" class="footer-icon-btn" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://facebook.com/casitamontessorisantacruz" class="footer-icon-btn" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://tiktok.com/@casitamontessoriscz" class="footer-icon-btn" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.87a8.18 8.18 0 004.78 1.52V6.95a4.85 4.85 0 01-1.01-.26z"/></svg>
+        </a>
+      </div>
+      <span class="footer-copyright">© 2026 Casita Montessori Santa Cruz · Todos los derechos reservados</span>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
+
+  // Mobile nav toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    mobileNav.classList.toggle('open', !open);
+    document.body.style.overflow = open ? '' : 'hidden';
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      // close all
+      document.querySelectorAll('.faq-question').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+      // open clicked if it was closed
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling.classList.add('open');
+      }
+    });
+  });
+
+  // Scroll reveal
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+</script>
+</body>
+</html>

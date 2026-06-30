@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "casita",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "8341", "/Users/peterverastegui/Documents/GitHub/Casita Montessori"],
+      "port": 8341
+    }
+  ]
+}
