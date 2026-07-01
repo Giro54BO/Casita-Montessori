@@ -829,7 +829,7 @@
        EQUIPO + TESTIMONIAL
     ══════════════════════════════ */
     .trust-section {
-      background: var(--color-warm-linen);
+      background: var(--color-terracotta);
     }
     .trust-layout {
       display: grid;
@@ -963,6 +963,7 @@ content: '\201C';
     }
     .trust-section-head {
       margin-bottom: clamp(2.5rem, 6vw, 4rem);
+      text-align: center;
     }
 
     /* ══════════════════════════════
@@ -1085,9 +1086,15 @@ content: '\201C';
         -webkit-overflow-scrolling: touch;
         gap: 1rem;
         padding-bottom: 1rem;
-        padding-left: 0.5rem;
-        padding-right: 1.25rem;
+        margin-left: calc(-1 * clamp(1.25rem, 5vw, 4rem));
+        margin-right: calc(-1 * clamp(1.25rem, 5vw, 4rem));
+        padding-left: clamp(1.25rem, 5vw, 4rem);
+        padding-right: clamp(1.25rem, 5vw, 4rem);
+        scroll-padding-left: clamp(1.25rem, 5vw, 4rem);
       }
+      .safety-grid::-webkit-scrollbar,
+      .montessori-grid::-webkit-scrollbar,
+      .dev-grid::-webkit-scrollbar { display: none; }
       .safety-item,
       .montessori-card,
       .dev-item {
@@ -1897,12 +1904,12 @@ content: '\201C';
 </section>
 
 <!-- ══ EQUIPO + TESTIMONIAL ══ -->
-<section class="section trust-section" id="equipo">
+<section class="section trust-section precio-callout" id="equipo">
   <div class="container">
 
     <div class="trust-section-head reveal">
-      <h2 class="t-headline" style="max-width:28ch;">Las manos que acompañan con cariño y respeto</h2>
-      <p class="t-body-lead" style="color:var(--color-warm-earth);max-width:52ch;">Detrás de cada sonrisa, cada pequeño logro y cada nuevo aprendizaje hay un equipo que acompaña a los niños con paciencia, dedicación y respeto por su ritmo.</p>
+      <h2 class="t-headline" style="max-width:28ch;margin-inline:auto;">Las manos que acompañan con cariño y respeto</h2>
+      <p class="t-body-lead" style="color:var(--color-deep-bark);max-width:52ch;margin-inline:auto;">Detrás de cada sonrisa, cada pequeño logro y cada nuevo aprendizaje hay un equipo que acompaña a los niños con paciencia, dedicación y respeto por su ritmo.</p>
     </div>
 
     <div class="trust-layout">
